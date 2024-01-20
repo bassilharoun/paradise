@@ -49,14 +49,14 @@ ThemeData getApplicationTheme() {
 
     //text theme
     textTheme: TextTheme(
-        displayLarge: getLightStyle(
-            color: ColorManager.darkPrimary, fontSize: FontSize.s16),
+        displayLarge: getSemiBoldStyle(
+            color: ColorManager.primary, fontSize: FontSize.s18),
         headlineLarge: getSemiBoldStyle(
-            color: ColorManager.darkPrimary, fontSize: FontSize.s16),
-        headlineMedium: getRegularStyle(
-            color: ColorManager.darkPrimary, fontSize: FontSize.s14),
+            color: ColorManager.primary, fontSize: FontSize.s16),
+        headlineMedium: getLightStyle(
+            color: ColorManager.primary, fontSize: FontSize.s16),
         titleMedium: getMediumStyle(
-            color: ColorManager.mediumPrimary, fontSize: FontSize.s14),
+            color: ColorManager.primary, fontSize: FontSize.s16),
         bodyLarge: getRegularStyle(color: ColorManager.grey1),
         bodySmall: getRegularStyle(color: ColorManager.grey2)),
 
