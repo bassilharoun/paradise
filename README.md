@@ -14,3 +14,10 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## important 
+- data layer is called a network layer (Network data source, local data source, mappers)
+- Domain layer have a use cases and business logic (models)
+- presentation layer has a ui and implementation of MVVM (design code)
+- application layer has a shared classes and shared dep

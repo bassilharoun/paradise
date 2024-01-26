@@ -1,4 +1,4 @@
-import 'package:avanced_course/domain/models.dart';
+import 'package:avanced_course/domain/models/models.dart';
 import 'package:avanced_course/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:avanced_course/presentation/resources/assets_manager.dart';
 import 'package:avanced_course/presentation/resources/color_manager.dart';
@@ -86,7 +86,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
             ),
             _getBottomSheetWidget(sliderViewObject),
-          ]),
+          ]
+          ),
         ),
       );
     }
