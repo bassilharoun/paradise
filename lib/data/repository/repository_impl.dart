@@ -1,5 +1,6 @@
 import 'package:avanced_course/data/data_source/remote_data_source.dart';
 import 'package:avanced_course/data/mapper/mapper.dart';
+import 'package:avanced_course/data/network/error_handler.dart';
 import 'package:avanced_course/data/network/failure.dart';
 import 'package:avanced_course/data/network/network_info.dart';
 import 'package:avanced_course/data/network/requests.dart';
@@ -14,15 +15,20 @@ class RepositoryImpl implements Repository{
   @override
   Future<Either<Failure, Authentication>> login(LoginRequest loginRequest) async{
   if(await _networkInfo.isConnected){
-    final response = await _remoteDataSource.login(loginRequest);
-    if(response.status == 0){
-      return Right(response.toDomain());
+    try{
+      final response = await _remoteDataSource.login(loginRequest);
+      if(response.status == ApiInternalStatus.SUCCESS){
+        return Right(response.toDomain());
+      }
+      else{
+        return Left(Failure(ApiInternalStatus.FAILURE,response.message ?? ResponseMessage.DEFAULT));
+      }
+    }catch(error){
+      return Left(ErrorHandler.handle(error).failure);
     }
-    else{
-      return Left(Failure(409,response.message ?? "there is an error, we are sorry!"));
-    }
+
   }else{
-    return Left(Failure(501,"check your internet connection"));
+    return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
   }
   }
 
